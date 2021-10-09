@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CS4518_FinalProject</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="greeting">hello</string>
+    <string name="username" tools:ignore="DuplicateDefinition">my name</string>
+    <string name="other_username" tools:ignore="DuplicateDefinition">other name</string>
+    <string name="user_location" tools:ignore="DuplicateDefinition">my location</string>
+    <string name="other_location" tools:ignore="DuplicateDefinition">other location</string>
+
+    <string name="message_question">What would you like to send?</string>
+    <string name="love">Love</string>
+    <string name="peace">Peace</string>
+    <string name="support">Support</string>
+    <string name="hope">Hope</string>
 </resources>

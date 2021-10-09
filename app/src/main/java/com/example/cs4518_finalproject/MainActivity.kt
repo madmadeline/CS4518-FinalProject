@@ -1,6 +1,7 @@
 package com.example.cs4518_finalproject
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -18,9 +19,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+
+        val currentFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment_container)
+        if (currentFragment == null) {
+            val fragment = FirstFragment()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -44,4 +56,5 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
 }

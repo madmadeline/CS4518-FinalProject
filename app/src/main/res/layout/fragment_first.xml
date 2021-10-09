@@ -28,7 +28,7 @@
                     android:id="@+id/textView_otherUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OtherUser" />
+                    android:text="@string/other_username" />
 
                 <ImageView
                     android:id="@+id/imageView_otherMoth"
@@ -40,11 +40,11 @@
                     android:id="@+id/textView_otherLoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="from Spain" />
+                    android:text="@string/other_location" />
             </LinearLayout>
 
             <Button
-                android:id="@+id/button_love3"
+                android:id="@+id/button_otherMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -52,7 +52,7 @@
                 android:layout_weight="0"
                 android:backgroundTint="#E91E63"
                 android:foregroundTint="#E91E63"
-                android:text="Love" />
+                android:text="@string/love" />
 
         </LinearLayout>
 
@@ -63,10 +63,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textview_first"
+                android:id="@+id/textView_greeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello, user!" />
+                android:text="@string/greeting" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="What would you like to send?" />
+                android:text="@string/message_question" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,8 +94,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:backgroundTint="#E91E63"
-                    android:foregroundTint="#E91E63"
-                    android:text="Love" />
+                    android:text="@string/love" />
 
                 <Button
                     android:id="@+id/button_peace"
@@ -104,7 +103,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:backgroundTint="#8BC34A"
-                    android:text="Peace" />
+                    android:text="@string/peace" />
 
                 <Button
                     android:id="@+id/button_support"
@@ -113,7 +112,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:backgroundTint="#03A9F4"
-                    android:text="Support" />
+                    android:text="@string/support" />
 
                 <Button
                     android:id="@+id/button_hope"
@@ -122,7 +121,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:backgroundTint="#FF9800"
-                    android:text="Hope" />
+                    android:text="@string/hope" />
 
             </LinearLayout>
 
