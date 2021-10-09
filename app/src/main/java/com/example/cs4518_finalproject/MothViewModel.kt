@@ -7,11 +7,8 @@ import androidx.lifecycle.ViewModel
 private const val TAG = "MothViewModel"
 
 class MothViewModel : ViewModel() {
-    val myIndex = 0
-    val otherIndex = 1
-
     init {
-        Log.d(TAG, "ViewModel instance created.")
+        Log.d(TAG, "moth viewmodel instance created.")
     }
 
     override fun onCleared(){
