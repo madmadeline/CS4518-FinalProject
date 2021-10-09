@@ -1,5 +1,7 @@
 package com.example.cs4518_finalproject
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
@@ -11,6 +13,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.cs4518_finalproject.databinding.ActivityMainBinding
+
+// Set the user's country
+private const val USER_COUNTRY = "Narnia"
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    companion object {
+        fun newIntent(packageContext: Context, country: String): Intent {
+            return Intent(packageContext, MainActivity::class.java).apply {
+                putExtra(USER_COUNTRY, country)
+            }
+        }
     }
 
 }

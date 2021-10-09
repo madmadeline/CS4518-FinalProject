@@ -77,8 +77,8 @@ class LocationActivity : AppCompatActivity() {
             Log.d(TAG, "Country Name Found: $country")
 
 
-            // val intent = MainActivity.newIntent(this@LocationActivity, lat, lon)
-            // startActivity(intent)
+            val intent = MainActivity.newIntent(this@LocationActivity, country)
+            startActivity(intent)
         }
     }
 
