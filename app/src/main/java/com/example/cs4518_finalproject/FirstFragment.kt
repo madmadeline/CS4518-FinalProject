@@ -125,7 +125,7 @@ class FirstFragment : Fragment() {
 //        Log.d(TAG, "parsing color: " + "#8bc34a️".toColorInt())
 
         Log.d(TAG, "random name: " + randomName)
-        otherMothMessage.setBackgroundColor(Color.parseColor(otherUserMessage.color))
+        otherMothMessage.setBackgroundColor(otherUserMessage.color)
 
         otherMothName.setText(randomName)
 
@@ -138,6 +138,7 @@ class FirstFragment : Fragment() {
             mothViewModel.mothsDatabase[userIndex].updateMessage(
                 mothViewModel.messagesDatabase[loveIndex]
             )
+            Log.d(TAG, "sending love...")
             // todo toast or separate activity
         }
 
@@ -145,6 +146,7 @@ class FirstFragment : Fragment() {
             mothViewModel.mothsDatabase[userIndex].updateMessage(
                 mothViewModel.messagesDatabase[peaceIndex]
             )
+            Log.d(TAG, "sending peace...")
             // todo toast or separate activity
         }
 
@@ -152,6 +154,7 @@ class FirstFragment : Fragment() {
             mothViewModel.mothsDatabase[userIndex].updateMessage(
                 mothViewModel.messagesDatabase[supportIndex]
             )
+            Log.d(TAG, "sending support...")
             // todo toast or separate activity
         }
 
@@ -159,6 +162,7 @@ class FirstFragment : Fragment() {
             mothViewModel.mothsDatabase[userIndex].updateMessage(
                 mothViewModel.messagesDatabase[hopeIndex]
             )
+            Log.d(TAG, "sending hope...")
             // todo toast or separate activity
         }
 

@@ -1,5 +1,6 @@
 package com.example.cs4518_finalproject
 
+import android.graphics.Color
 import android.util.Log
 import androidx.lifecycle.ViewModel
 
@@ -19,17 +20,17 @@ class MothViewModel : ViewModel() {
     }
 
     var messagesDatabase = listOf(
-        Message("#E91E63", R.string.love),
-        Message("#8BC34A️", R.string.peace),
-        Message("#03A9F4", R.string.support),
-        Message("#FF9800", R.string.hope)
+        Message(Color.rgb(233, 30, 99), R.string.love),
+        Message(Color.rgb(139, 195, 74), R.string.peace),
+        Message(Color.rgb(3, 169, 244), R.string.support),
+        Message(Color.rgb(255, 152, 0), R.string.hope)
     )
 
     var mothsDatabase = listOf(
         Moth(R.string.username, R.string.user_location,
-            Message("#FFFFFF", R.string.message_question)),
+            Message(Color.rgb(255, 255, 255), R.string.message_question)),
         Moth(R.string.other_username, R.string.other_location,
-            Message("#FFFFFF", R.string.message_question))
+            Message(Color.rgb(255, 255, 255), R.string.message_question))
     )
 
 }
