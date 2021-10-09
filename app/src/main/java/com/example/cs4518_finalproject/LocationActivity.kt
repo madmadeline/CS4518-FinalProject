@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
@@ -17,6 +18,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import android.location.Geocoder
+import java.util.*
+
 
 private const val TAG = "LocationActivity"
 
@@ -45,6 +49,7 @@ class LocationActivity : AppCompatActivity() {
     private var mLongitudeLabel: String? = null
     private var mLatitudeText: TextView? = null
     private var mLongitudeText: TextView? = null
+    private var mCountryText: TextView? = null
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +60,7 @@ class LocationActivity : AppCompatActivity() {
         mLongitudeLabel = resources.getString(R.string.longitude_label)
         mLatitudeText = findViewById(R.id.latitude_text)
         mLongitudeText = findViewById<TextView>(R.id.longitude_text)
+        mCountryText = findViewById<TextView>(R.id.country_text)
         continueButton = findViewById<Button>(R.id.button_allow) as Button
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -63,10 +69,12 @@ class LocationActivity : AppCompatActivity() {
             //start MainActivity
             val lat = mLatitudeText!!.text.toString()
             val lon = mLongitudeText!!.text.toString()
+            val country = mCountryText!!.text.toString()
 
             // store the lat and lon
             Log.d(TAG, "lat here is: $lat")
             Log.d(TAG, "lon here is: $lon")
+            Log.d(TAG, "Country Name Found: $country")
 
 
             // val intent = MainActivity.newIntent(this@LocationActivity, lat, lon)
@@ -105,6 +113,17 @@ class LocationActivity : AppCompatActivity() {
                                 (mLastLocation )!!.latitude)
                     mLongitudeText!!.setText(""+
                             (mLastLocation )!!.longitude)
+
+                    // Get the country from the coords
+                    val lat = (mLastLocation )!!.latitude
+                    val lon = (mLastLocation )!!.longitude
+                    val gcd = Geocoder(this.applicationContext, Locale.getDefault())
+                    val addresses: List<Address> = gcd.getFromLocation(lat, lon, 1)
+
+                    if (addresses.size > 0) {
+                        val countryName: String = addresses[0].getCountryName()
+                        mCountryText!!.setText(""+countryName)
+                    }
                 } else {
                     Log.w(TAG, "getLastLocation:exception", task.exception)
                     showMessage(getString(R.string.no_location_detected))

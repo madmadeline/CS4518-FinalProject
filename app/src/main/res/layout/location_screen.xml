@@ -55,6 +55,15 @@
         android:textIsSelectable="true"
         android:hint="@string/longitude_label"/>
 
+    <TextView
+        android:id="@+id/country_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:textIsSelectable="true"
+        android:hint="@string/longitude_label"/>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="300dp"
