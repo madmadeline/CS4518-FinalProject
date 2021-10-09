@@ -1,22 +1,28 @@
 package com.example.cs4518_finalproject
 
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
-import android.net.Uri
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
-import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
-import java.io.File
+import nl.dionsegijn.konfetti.models.Shape
+import nl.dionsegijn.konfetti.models.Size
 
-private const val TAG = "GameFragment"
+private const val TAG = "FirstFragment"
+private const val USER_MESSAGE = "User Message"
+//private const val OTHER_USER_MESSAGE = "Other User Message"
+//private const val ARG_GAME_ID = "game_id"
+//private const val ARG_LAT = "lat"
+//private const val ARG_LON = "lon"
+//private const val REQUEST_PHOTO = 2
 
 class FirstFragment : Fragment() {
 
@@ -27,14 +33,22 @@ class FirstFragment : Fragment() {
     private lateinit var loveMessageButton: Button
     private lateinit var peaceMessageButton: Button
     private lateinit var supportMessageButton: Button
-    private lateinit var hugsMessageButton: Button
+    private lateinit var hopeMessageButton: Button
 
     private lateinit var otherMothName: TextView
     private lateinit var otherMothLocation: TextView
     private lateinit var otherMothMessage: Button
 
-    private val homeIndex = 0
-    private val awayIndex = 1
+    /*
+     * INDICES
+     */
+    private val userIndex = 0
+    private val otherUserIndex = 1
+    private val loveIndex = 0
+    private val peaceIndex = 1
+    private val supportIndex = 2
+    private val hopeIndex = 3
+
 
     private val mothViewModel: MothViewModel by lazy {
         ViewModelProviders.of(this).get(MothViewModel::class.java)
@@ -45,17 +59,101 @@ class FirstFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    
 
+    private var names = arrayOf("Annie", "Bjorn", "Choi", "Dmitriy", "Eiko", "Filio")
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        myMoth = Moth()
+//        otherMoth = Moth()
+    }
+
+    @SuppressLint("Range")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_first, container, false)
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return binding.root
 
+
+        /*
+         UPDATE USER MOTH
+         */
+        val userMessage = savedInstanceState?.getInt(USER_MESSAGE, 0) ?: 0
+        mothViewModel.mothsDatabase[userIndex].message = mothViewModel.messagesDatabase[userMessage]
+
+        /*
+         UPDATE OTHER MOTH WITH RANDOM DATA
+         */
+        val randomMessage = mothViewModel.messagesDatabase[(0..3).random()]
+        val randomName =names[(0..5).random()]
+        mothViewModel.mothsDatabase[otherUserIndex].message = randomMessage
+//        mothViewModel.mothsDatabase[otherUserIndex].username = randomName
+
+        /*
+         GET THE VIEWMODEL
+         */
+        val provider: ViewModelProvider = ViewModelProviders.of(this)
+        val mothViewModel = provider.get(MothViewModel::class.java)
+        Log.d(TAG, "Got a MothViewModel: $mothViewModel")
+
+        /*
+         WIRING UP WIDGETS
+         */
+        greeting = view.findViewById(R.id.textView_greeting)
+        loveMessageButton = view.findViewById(R.id.button_love)
+        peaceMessageButton = view.findViewById(R.id.button_peace)
+        supportMessageButton = view.findViewById(R.id.button_support)
+        hopeMessageButton = view.findViewById(R.id.button_hope)
+        otherMothName = view.findViewById(R.id.textView_otherUser)
+        otherMothLocation = view.findViewById(R.id.textView_otherLoc)
+        otherMothMessage = view.findViewById(R.id.button_otherMessage)
+
+        /*
+         SHOW OTHER USER MESSAGE
+         */
+        val otherUserMessage = mothViewModel.mothsDatabase[otherUserIndex].message
+        otherMothMessage.setText(otherUserMessage.text)
+        otherMothMessage.setBackgroundColor(Color.parseColor(otherUserMessage.color))
+
+        otherMothName.setText(randomName)
+
+        /*
+         LISTENERS
+         */
+        loveMessageButton.setOnClickListener { view: View ->
+            mothViewModel.mothsDatabase[userIndex].updateMessage(
+                mothViewModel.messagesDatabase[loveIndex]
+            )
+            // todo toast or separate activity
+        }
+
+        peaceMessageButton.setOnClickListener { view: View ->
+            mothViewModel.mothsDatabase[userIndex].updateMessage(
+                mothViewModel.messagesDatabase[peaceIndex]
+            )
+            // todo toast or separate activity
+        }
+
+        supportMessageButton.setOnClickListener { view: View ->
+            mothViewModel.mothsDatabase[userIndex].updateMessage(
+                mothViewModel.messagesDatabase[supportIndex]
+            )
+            // todo toast or separate activity
+        }
+
+        hopeMessageButton.setOnClickListener { view: View ->
+            mothViewModel.mothsDatabase[userIndex].updateMessage(
+                mothViewModel.messagesDatabase[hopeIndex]
+            )
+            // todo toast or separate activity
+        }
+
+//        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,5 +167,12 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle){
+        super.onSaveInstanceState(savedInstanceState)
+        Log.i(TAG, "onSaveInstanceState")
+        savedInstanceState.putInt(USER_MESSAGE,
+            mothViewModel.messagesDatabase.indexOf(mothViewModel.messagesDatabase[userIndex]))
     }
 }

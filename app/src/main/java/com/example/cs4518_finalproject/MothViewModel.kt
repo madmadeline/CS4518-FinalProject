@@ -19,16 +19,17 @@ class MothViewModel : ViewModel() {
     }
 
     var messagesDatabase = listOf(
-        Message("\uD83D\uDC96", "LOVE"),
-        Message("\uD83D\uDD4A️", "PEACE"),
-        Message("\uD83D\uDC4D", "SUPPORT"),
-        Message("\uD83E\uDD17", "HUGS")
-
+        Message("#E91E63", R.string.love),
+        Message("#8BC34A️", R.string.peace),
+        Message("#03A9F4", R.string.support),
+        Message("#FF9800", R.string.hope)
     )
 
     var mothsDatabase = listOf(
-        Moth(R.string.username, R.string.user_location, messagesDatabase[0]),
-        Moth(R.string.other_username, R.string.other_location, messagesDatabase[0])
+        Moth(R.string.username, R.string.user_location,
+            Message("#FFFFFF", R.string.message_question)),
+        Moth(R.string.other_username, R.string.other_location,
+            Message("#FFFFFF", R.string.message_question))
     )
 
 }

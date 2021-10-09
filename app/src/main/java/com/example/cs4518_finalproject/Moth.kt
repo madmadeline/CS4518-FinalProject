@@ -1,12 +1,12 @@
 package com.example.cs4518_finalproject
 
-import java.util.*
+import androidx.annotation.StringRes
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_game")
-data class Moth (@PrimaryKey val username: String = "",
-                 var location: String = "",
+//@Entity(tableName = "table_moth")
+data class Moth (@PrimaryKey @StringRes var username: Int,
+                 @StringRes var location: Int,
                  var message: Message
                  ) {
     fun updateMessage(new_message: Message) {
