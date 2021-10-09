@@ -20,8 +20,17 @@
     // Location Screen Strings
     <string name="gps_perm">GPS Permissions</string>
     <string name="where_r_u">This app would like to use your location.</string>
-    <string name="allow">Allow</string>
+    <string name="allow">Continue</string>
     <string name="dont_allow">Don\'t Allow</string>
+    <string name="no_location_detected">
+        No location detected. Make sure location is enabled on the device.
+    </string>
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+    <string name="settings">Settings</string>
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
 
     // Moth Screen Strings
     <string name="greeting">hello</string>

@@ -1,7 +1,6 @@
 package com.example.cs4518_finalproject
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,13 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
-import nl.dionsegijn.konfetti.models.Shape
-import nl.dionsegijn.konfetti.models.Size
 
 private const val TAG = "LoginFragment"
 private const val USERNAME = "Username"
@@ -73,7 +67,7 @@ class LoginFragment : Fragment() {
          */
         usernameEditText = view.findViewById(R.id.username_input)
         passwordEditText = view.findViewById(R.id.password_input)
-        signInButton = view.findViewById(R.id.button_signIn)
+        signInButton = view.findViewById(R.id.button_allow)
         signUpButton = view.findViewById(R.id.button_signUp)
 
         /*
