@@ -8,7 +8,10 @@
         <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/content_main.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/fragment_first.xml" value="0.264" />
         <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/fragment_second.xml" value="0.1983695652173913" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/login_screen.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/location_screen.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/login_screen.xml" value="0.264" />
+        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/moth_screen.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/send_screen.xml" value="0.1947463768115942" />
       </map>
     </option>
   </component>

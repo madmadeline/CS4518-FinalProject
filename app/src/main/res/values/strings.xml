@@ -10,15 +10,34 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    // Login Screen Strings
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_greet">Hello there! Nice to see you again.</string>
+    <string name="sign_in_usern">Username</string>
+    <string name="sign_in_passw">Password</string>
+    <string name="sign_up">Sign Up</string>
+
+    // Location Screen Strings
+    <string name="gps_perm">GPS Permissions</string>
+    <string name="where_r_u">This app would like to use your location.</string>
+    <string name="allow">Allow</string>
+    <string name="dont_allow">Don\'t Allow</string>
+
+    // Moth Screen Strings
     <string name="greeting">hello</string>
     <string name="username" tools:ignore="DuplicateDefinition">my name</string>
     <string name="other_username" tools:ignore="DuplicateDefinition">other name</string>
     <string name="user_location" tools:ignore="DuplicateDefinition">my location</string>
     <string name="other_location" tools:ignore="DuplicateDefinition">other location</string>
-
     <string name="message_question">What would you like to send?</string>
     <string name="love">Love</string>
     <string name="peace">Peace</string>
     <string name="support">Support</string>
     <string name="hope">Hope</string>
+
+    // Send Screen Strings
+    <string name="just_sent">You just sent</string>
+    <string name="lots_o">a lot of</string>
+    <string name="back_btn">Back</string>
+
 </resources>

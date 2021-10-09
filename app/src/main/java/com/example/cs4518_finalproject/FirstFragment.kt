@@ -1,7 +1,6 @@
 package com.example.cs4518_finalproject
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,13 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
-import nl.dionsegijn.konfetti.models.Shape
-import nl.dionsegijn.konfetti.models.Size
 
 private const val TAG = "FirstFragment"
 private const val USER_MESSAGE = "User Message"
@@ -76,7 +71,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 //        _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        val view = inflater.inflate(R.layout.fragment_first, container, false)
+        val view = inflater.inflate(R.layout.moth_screen, container, false)
 
 
 
@@ -104,7 +99,7 @@ class FirstFragment : Fragment() {
         /*
          WIRING UP WIDGETS
          */
-        greeting = view.findViewById(R.id.textView_greeting)
+        greeting = view.findViewById(R.id.textView_youSent)
         loveMessageButton = view.findViewById(R.id.button_love)
         peaceMessageButton = view.findViewById(R.id.button_peace)
         supportMessageButton = view.findViewById(R.id.button_support)
