@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColorInt
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
@@ -117,9 +118,18 @@ class FirstFragment : Fragment() {
          */
         val otherUserMessage = mothViewModel.mothsDatabase[otherUserIndex].message
         otherMothMessage.setText(otherUserMessage.text)
+//        Log.d(TAG, "message: " + otherUserMessage.text)
+        Log.d(TAG, "random message: " + randomMessage.text)
+//        Log.d(TAG, "color: " + otherUserMessage.color)
+//        Log.d(TAG, ""+ Color.parseColor("#22aadd"))
+//        Log.d(TAG, "parsing color: " + "#8bc34a️".toColorInt())
+
+        Log.d(TAG, "random name: " + randomName)
         otherMothMessage.setBackgroundColor(Color.parseColor(otherUserMessage.color))
 
         otherMothName.setText(randomName)
+
+        Log.d(TAG, "name changed? " + mothViewModel.mothsDatabase[otherUserIndex].username)
 
         /*
          LISTENERS
