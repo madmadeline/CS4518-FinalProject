@@ -8,11 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
 
-private const val TAG = "FirstFragment"
+private const val TAG = "MothFragment"
 private const val USER_MESSAGE = "User Message"
 //private const val OTHER_USER_MESSAGE = "Other User Message"
 private const val USER_COUNTRY = "Narnia"
@@ -180,13 +181,6 @@ class MothFragment : Fragment() {
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // binding.buttonFirst.setOnClickListener {
-        //    findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        //}
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -199,4 +193,5 @@ class MothFragment : Fragment() {
         savedInstanceState.putInt(USER_MESSAGE,
             mothViewModel.messagesDatabase.indexOf(mothViewModel.messagesDatabase[userIndex]))
     }
+
 }

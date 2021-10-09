@@ -7,9 +7,15 @@ import androidx.lifecycle.ViewModel
 private const val TAG = "MothViewModel"
 
 class MothViewModel : ViewModel() {
-    init {
-        Log.d(TAG, "moth viewmodel instance created.")
-    }
+    private val mothRepository = MothRepository.get()
+    val mothListLiveData = mothRepository.getMoths()
+
+//    init {
+//        Log.d(TAG, "moth viewmodel instance created.")
+//    }
+
+
+
 
     override fun onCleared(){
         super.onCleared()
@@ -24,9 +30,9 @@ class MothViewModel : ViewModel() {
     )
 
     var mothsDatabase = listOf(
-        Moth(R.string.username, R.string.user_location,
+        Moth(R.string.username, R.string.sign_in_passw, R.string.user_location,
             Message(Color.rgb(255, 255, 255), R.string.message_question)),
-        Moth(R.string.other_username, R.string.other_location,
+        Moth(R.string.other_username, R.string.sign_in_passw, R.string.other_location,
             Message(Color.rgb(255, 255, 255), R.string.message_question))
     )
 

@@ -3,19 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/drawable/moth_image.xml" value="0.290625" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout-land/location_screen.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout-land/login_screen.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout-land/moth_screen.xml" value="0.264" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout-land/send_screen.xml" value="0.23236331569664903" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/content_main.xml" value="0.1983695652173913" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/fragment_first.xml" value="0.264" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/fragment_second.xml" value="0.1983695652173913" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/location_screen.xml" value="0.1947463768115942" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/login_screen.xml" value="0.264" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/moth_screen.xml" value="0.1947463768115942" />
-        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/send_screen.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/madel/AndroidStudioProjects/CS4518_FinalProject/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/login_screen.xml" value="0.19972826086956522" />
+        <entry key="app/src/main/res/layout/moth_screen.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -4,8 +4,9 @@ import androidx.annotation.StringRes
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//@Entity(tableName = "table_moth")
-data class Moth (@StringRes var username: Int,
+@Entity
+data class Moth (@PrimaryKey @StringRes var username: Int,
+                 @StringRes var password: Int,
                  @StringRes var location: Int,
                  var message: Message
                  ) {

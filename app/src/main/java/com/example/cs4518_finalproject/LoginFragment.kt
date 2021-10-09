@@ -117,4 +117,17 @@ class LoginFragment : Fragment() {
         savedInstanceState.putString(USERNAME, loginViewModel.username)
         savedInstanceState.putString(PASSWORD, loginViewModel.password)
     }
+
+    // todo swith the login view model with moth viewmodel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mothViewModel.mothListLiveData.observe(
+            viewLifecycleOwner,
+            Observer { moths ->
+                moths?.let {
+                    Log.i(TAG, "Got moths ${moths.size}")
+//                    updateUI(crimes)
+                }
+            })
+    }
 }
