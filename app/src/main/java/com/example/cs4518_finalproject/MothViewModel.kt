@@ -14,26 +14,33 @@ class MothViewModel : ViewModel() {
 //        Log.d(TAG, "moth viewmodel instance created.")
 //    }
 
-
-
-
     override fun onCleared(){
         super.onCleared()
         Log.d(TAG, "ViewModel instance about to be destroyed.")
     }
 
     var messagesDatabase = listOf(
-        Message(Color.rgb(233, 30, 99), R.string.love),
-        Message(Color.rgb(139, 195, 74), R.string.peace),
-        Message(Color.rgb(3, 169, 244), R.string.support),
-        Message(Color.rgb(255, 152, 0), R.string.hope)
+        Message(Color.rgb(233, 30, 99), R.string.love, R.string.love.toString()),
+        Message(Color.rgb(139, 195, 74), R.string.peace, R.string.peace.toString()),
+        Message(Color.rgb(3, 169, 244), R.string.support, R.string.support.toString()),
+        Message(Color.rgb(255, 152, 0), R.string.hope, R.string.hope.toString())
     )
 
     var mothsDatabase = listOf(
-        Moth(R.string.username, R.string.sign_in_passw, R.string.user_location,
-            Message(Color.rgb(255, 255, 255), R.string.message_question)),
-        Moth(R.string.other_username, R.string.sign_in_passw, R.string.other_location,
-            Message(Color.rgb(255, 255, 255), R.string.message_question))
+        Moth("name", "password","location",
+            Message(Color.rgb(255, 255, 255), R.string.message_question, "random")),
+        Moth("name", "password","location",
+            Message(Color.rgb(255, 255, 255), R.string.message_question, "random"))
     )
+
+    fun saveMoth(moth: Moth) {
+        Log.d(TAG, "saving moth $moth")
+        mothRepository.updateMoth(moth)
+    }
+
+    fun addMoth(moth: Moth) {
+        Log.d(TAG, "adding moth $moth")
+        mothRepository.addMoth(moth)
+    }
 
 }

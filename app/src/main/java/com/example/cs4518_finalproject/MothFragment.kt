@@ -127,6 +127,7 @@ class MothFragment : Fragment() {
         otherMothMessage.setBackgroundColor(otherUserMessage.color)
 
         otherMothName.setText(randomName)
+        mothViewModel.mothsDatabase[otherUserIndex].username = randomName
 
         Log.d(TAG, "name changed? " + mothViewModel.mothsDatabase[otherUserIndex].username)
 

@@ -8,5 +8,6 @@ import androidx.annotation.StringRes
 class Message (
     var color: Int,
 //    val emoji: String = "",
-    @StringRes var text: Int
+    @StringRes var text: Int,
+    var textString: String
 )

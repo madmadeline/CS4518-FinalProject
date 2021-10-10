@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 private const val TAG = "LoginViewModel"
 
 class LoginViewModel : ViewModel() {
+
     init {
         Log.d(TAG, "login viewmodel instance created.")
     }

@@ -10,6 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColorInt
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
@@ -25,9 +28,12 @@ class LoginFragment : Fragment() {
     private lateinit var signInButton: Button
     private lateinit var signUpButton: Button
 
+    private val userIndex = 0
+    private val otherUserIndex = 1
 
-    private val loginViewModel: LoginViewModel by lazy {
-        ViewModelProviders.of(this).get(LoginViewModel::class.java)
+
+    private val mothViewModel: MothViewModel by lazy {
+        ViewModelProviders.of(this).get(MothViewModel::class.java)
     }
 
     private var names = arrayOf("Annie", "Bjorn", "Choi", "Dmitriy", "Eiko", "Filio")
@@ -48,11 +54,12 @@ class LoginFragment : Fragment() {
 //        val pass = passwords[(0..2).random()]
         val user = savedInstanceState?.getString(USERNAME, "") ?: ""
         val pass = savedInstanceState?.getString(PASSWORD, "") ?: ""
-        loginViewModel.username = user
-        loginViewModel.password = pass
+        mothViewModel.mothsDatabase[userIndex].username = user
+        mothViewModel.mothsDatabase[userIndex].password = pass
+//        loginViewModel.password = pass
 
-        Log.d(TAG, "username set: " + loginViewModel.username)
-        Log.d(TAG, "password set: " + loginViewModel.password)
+        Log.d(TAG, "username set: " + mothViewModel.mothsDatabase[userIndex].username)
+        Log.d(TAG, "password set: " + mothViewModel.mothsDatabase[userIndex].password)
 
 
         /*
@@ -98,6 +105,27 @@ class LoginFragment : Fragment() {
             Log.d(TAG, "username: " + loginViewModel.username)
             Log.d(TAG, "password: " + loginViewModel.password)
             // todo check if correct password
+            Log.d(TAG, "checking password...")
+            mothViewModel.mothListLiveData.observe(
+                viewLifecycleOwner,
+                Observer { moths ->
+                    moths?.let {
+                        var moths = it
+                        moths.forEach {
+                            if (it.username.equals(loginViewModel.username)) {
+                                if (it.password.equals(loginViewModel.password)) {
+                                    Log.d(TAG, "correct password")
+                                    // todo login user
+                                    return@forEach
+                                } else {
+                                    // todo warn user incorrect pass
+                                    Log.d(TAG, "incorrect password")
+                                    return@forEach
+                                }
+                            }
+                        }
+                }
+            })
             // todo go to main activity screen
         }
 
@@ -106,6 +134,32 @@ class LoginFragment : Fragment() {
             Log.d(TAG, "username: " + loginViewModel.username)
             Log.d(TAG, "password: " + loginViewModel.password)
             // todo add username and password to database
+
+            var userExists = false
+            mothViewModel.mothListLiveData.observe(
+                viewLifecycleOwner,
+                Observer { moths ->
+                    moths?.let {
+                        var moths = it
+                        moths.forEach {
+                            if (it.username.equals(loginViewModel.username)) {
+                                Log.d(TAG, "user already exists")
+                                // todo warn user username already exists
+                                userExists = true
+                                return@forEach
+                            }
+                        }
+                    }
+                })
+            if (!userExists) {
+                Log.d(TAG, "adding user to database...")
+                var newMoth = Moth(loginViewModel.username,
+                    loginViewModel.password,
+                    // todo get location
+                    "random location",
+                    Message(Color.rgb(255, 255, 255), R.string.message_question, "random"))
+                mothViewModel.addMoth(newMoth)
+            }
             // todo go to main activity screen
         }
         return view
@@ -114,11 +168,10 @@ class LoginFragment : Fragment() {
     override fun onSaveInstanceState(savedInstanceState: Bundle){
         super.onSaveInstanceState(savedInstanceState)
         Log.i(TAG, "onSaveInstanceState")
-        savedInstanceState.putString(USERNAME, loginViewModel.username)
-        savedInstanceState.putString(PASSWORD, loginViewModel.password)
+        savedInstanceState.putString(USERNAME, mothViewModel.mothsDatabase[userIndex].username)
+        savedInstanceState.putString(PASSWORD, mothViewModel.mothsDatabase[userIndex].password)
     }
 
-    // todo swith the login view model with moth viewmodel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mothViewModel.mothListLiveData.observe(
@@ -126,7 +179,6 @@ class LoginFragment : Fragment() {
             Observer { moths ->
                 moths?.let {
                     Log.i(TAG, "Got moths ${moths.size}")
-//                    updateUI(crimes)
                 }
             })
     }
