@@ -15,12 +15,14 @@ import com.example.cs4518_finalproject.databinding.FragmentFirstBinding
 private const val TAG = "FirstFragment"
 private const val USER_MESSAGE = "User Message"
 //private const val OTHER_USER_MESSAGE = "Other User Message"
+private const val USER_COUNTRY = "Narnia"
+private var OTHER_USERNAME = "Arthur"
 //private const val ARG_GAME_ID = "game_id"
 //private const val ARG_LAT = "lat"
 //private const val ARG_LON = "lon"
 //private const val REQUEST_PHOTO = 2
 
-class FirstFragment : Fragment() {
+class MothFragment : Fragment() {
 
     private lateinit var myMoth: Moth
     private lateinit var otherMoth: Moth
@@ -86,6 +88,7 @@ class FirstFragment : Fragment() {
          */
         val randomMessage = mothViewModel.messagesDatabase[(0..3).random()]
         val randomName =names[(0..5).random()]
+        OTHER_USERNAME = randomName
         mothViewModel.mothsDatabase[otherUserIndex].message = randomMessage
 //        mothViewModel.mothsDatabase[otherUserIndex].username = randomName
 
@@ -100,7 +103,7 @@ class FirstFragment : Fragment() {
          WIRING UP WIDGETS
          */
         greeting = view.findViewById(R.id.textView_youSent)
-        loveMessageButton = view.findViewById(R.id.button_love)
+        loveMessageButton = view.findViewById(R.id.button_message)
         peaceMessageButton = view.findViewById(R.id.button_peace)
         supportMessageButton = view.findViewById(R.id.button_support)
         hopeMessageButton = view.findViewById(R.id.button_hope)
@@ -135,6 +138,9 @@ class FirstFragment : Fragment() {
             )
             Log.d(TAG, "sending love...")
             // todo toast or separate activity
+            // go to SendActivity and send intent 'love'
+            val intent = SendActivity.newIntent(context, "Love", OTHER_USERNAME)
+            startActivity(intent)
         }
 
         peaceMessageButton.setOnClickListener { view: View ->
@@ -143,6 +149,9 @@ class FirstFragment : Fragment() {
             )
             Log.d(TAG, "sending peace...")
             // todo toast or separate activity
+            // go to SendActivity and send intent 'peace'
+            val intent = SendActivity.newIntent(context, "Peace", OTHER_USERNAME)
+            startActivity(intent)
         }
 
         supportMessageButton.setOnClickListener { view: View ->
@@ -151,6 +160,9 @@ class FirstFragment : Fragment() {
             )
             Log.d(TAG, "sending support...")
             // todo toast or separate activity
+            // go to SendActivity and send intent 'support'
+            val intent = SendActivity.newIntent(context, "Support", OTHER_USERNAME)
+            startActivity(intent)
         }
 
         hopeMessageButton.setOnClickListener { view: View ->
@@ -159,6 +171,9 @@ class FirstFragment : Fragment() {
             )
             Log.d(TAG, "sending hope...")
             // todo toast or separate activity
+            // go to SendActivity and send intent 'hope'
+            val intent = SendActivity.newIntent(context, "Hope", OTHER_USERNAME)
+            startActivity(intent)
         }
 
 //        return binding.root

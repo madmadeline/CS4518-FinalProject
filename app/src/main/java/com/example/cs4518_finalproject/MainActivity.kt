@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (currentFragment == null) {
-            val fragment = LoginFragment()
+            val fragment = MothFragment()
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment_container, fragment)
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
@@ -54,18 +54,24 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 
-    override fun onSupportNavigateUp(): Boolean {
+    /*override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
-    }
+    }*/
 
     companion object {
         fun newIntent(packageContext: Context, country: String): Intent {
             return Intent(packageContext, MainActivity::class.java).apply {
                 putExtra(USER_COUNTRY, country)
+            }
+        }
+
+        fun newIntent(packageContext: Context): Intent{
+            return Intent(packageContext, MainActivity::class.java).apply{
+                //No extras!
             }
         }
     }
