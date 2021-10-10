@@ -115,7 +115,7 @@ class LoginFragment : Fragment() {
                             if (it.username.equals(loginViewModel.username)) {
                                 if (it.password.equals(loginViewModel.password)) {
                                     Log.d(TAG, "correct password")
-                                    // todo login user
+                                    // todo go to main activity screen
                                     return@forEach
                                 } else {
                                     // todo warn user incorrect pass
@@ -126,14 +126,12 @@ class LoginFragment : Fragment() {
                         }
                 }
             })
-            // todo go to main activity screen
         }
 
         signUpButton.setOnClickListener { view: View ->
             Log.d(TAG, "signing up...")
             Log.d(TAG, "username: " + loginViewModel.username)
             Log.d(TAG, "password: " + loginViewModel.password)
-            // todo add username and password to database
 
             var userExists = false
             mothViewModel.mothListLiveData.observe(
