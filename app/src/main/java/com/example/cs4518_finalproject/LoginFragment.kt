@@ -1,6 +1,7 @@
 package com.example.cs4518_finalproject
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
