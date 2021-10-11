@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/login_screen.xml" value="0.19972826086956522" />
         <entry key="app/src/main/res/layout/moth_screen.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/send_screen.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -112,6 +112,7 @@ class MothFragment : Fragment() {
         otherMothLocation = view.findViewById(R.id.textView_otherLoc)
         otherMothMessage = view.findViewById(R.id.button_otherMessage)
 
+
         /*
          SHOW OTHER USER MESSAGE
          */

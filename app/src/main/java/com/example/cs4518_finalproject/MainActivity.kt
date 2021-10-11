@@ -29,10 +29,21 @@ class MainActivity : AppCompatActivity() {
 //        binding = ActivityMainBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
 
+//        val bundle = Bundle()
+//        bundle.putString("params", "My String data")
+//        // set MyFragment Arguments
+//        // set MyFragment Arguments
+//        val myObj = MyFragment()
+//        myObj.setArguments(bundle)
+
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (currentFragment == null) {
-            val fragment = MothFragment()
+            val bundle = Bundle()
+            bundle.putString("location", USER_COUNTRY)
+//            val fragment = MothFragment()
+            val fragment = LoginFragment()
+            fragment.setArguments(bundle)
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment_container, fragment)

@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProviders
 private const val TAG = "LoginFragment"
 private const val USERNAME = "Username"
 private const val PASSWORD = "Password"
+private const val USER_COUNTRY = "Narnia"
 
 class LoginFragment : Fragment() {
 
@@ -47,7 +48,10 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.login_screen, container, false)
-
+        var location = ""
+        if (getArguments() != null) {
+            location = getArguments()?.getString("location").toString()
+        }
         /*
          UPDATE LOGIN INFORMATION
          */
@@ -83,7 +87,6 @@ class LoginFragment : Fragment() {
          */
         usernameEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                // todo store this as string
                 loginViewModel.username = s.toString()
 //                Log.d(TAG, "username changed: " + s.toString())
             }
@@ -93,7 +96,6 @@ class LoginFragment : Fragment() {
 
         passwordEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                // todo store this as string
                 loginViewModel.password = s.toString()
 //                Log.d(TAG, "password changed: " + s.toString())
             }
@@ -105,7 +107,6 @@ class LoginFragment : Fragment() {
             Log.d(TAG, "signing in...")
             Log.d(TAG, "username: " + loginViewModel.username)
             Log.d(TAG, "password: " + loginViewModel.password)
-            // todo check if correct password
             Log.d(TAG, "checking password...")
             mothViewModel.mothListLiveData.observe(
                 viewLifecycleOwner,
@@ -116,11 +117,16 @@ class LoginFragment : Fragment() {
                             if (it.username.equals(loginViewModel.username)) {
                                 if (it.password.equals(loginViewModel.password)) {
                                     Log.d(TAG, "correct password")
-                                    // todo go to main activity screen
+                                    // go to main activity screen
+                                    var fr = getFragmentManager()?.beginTransaction()
+                                    fr?.replace(R.id.fragment_container, MothFragment())
+                                    fr?.commit()
                                     return@forEach
                                 } else {
-                                    // todo warn user incorrect pass
+                                    // warn user incorrect pass
                                     Log.d(TAG, "incorrect password")
+                                    Toast.makeText(activity?.applicationContext,
+                                        "Incorrect Password", Toast.LENGTH_LONG).show()
                                     return@forEach
                                 }
                             }
@@ -143,7 +149,9 @@ class LoginFragment : Fragment() {
                         moths.forEach {
                             if (it.username.equals(loginViewModel.username)) {
                                 Log.d(TAG, "user already exists")
-                                // todo warn user username already exists
+                                // warn user username already exists
+                                Toast.makeText(activity?.applicationContext,
+                                    "Username already exists!", Toast.LENGTH_LONG).show()
                                 userExists = true
                                 return@forEach
                             }
@@ -154,12 +162,15 @@ class LoginFragment : Fragment() {
                 Log.d(TAG, "adding user to database...")
                 var newMoth = Moth(loginViewModel.username,
                     loginViewModel.password,
-                    // todo get location
-                    "random location",
+                    location,
                     Message(Color.rgb(255, 255, 255), R.string.message_question, "random"))
                 mothViewModel.addMoth(newMoth)
+
+                // go to main activity screen
+                var fr = getFragmentManager()?.beginTransaction()
+                fr?.replace(R.id.fragment_container, MothFragment())
+                fr?.commit()
             }
-            // todo go to main activity screen
         }
         return view
     }
