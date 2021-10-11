@@ -43,7 +43,7 @@ class SendActivity : AppCompatActivity(){
          */
         textOtherUser.text = OTHER_USERNAME
         messageButton.text = USER_MESSAGE
-        messageButton.setBackgroundColor(findColor())
+        messageButton.setBackgroundColor(findColor(USER_MESSAGE))
 
         /*
         ON-CLICK LISTENERS
@@ -55,10 +55,10 @@ class SendActivity : AppCompatActivity(){
         }
     }
 
-    private fun findColor(): Int {
+    private fun findColor(user_message : String): Int {
         var result = 0
 
-        when (USER_MESSAGE) {
+        when (user_message) {
             "Love" -> {
                 //Pink
                 result = Color.parseColor("#E91E63")
