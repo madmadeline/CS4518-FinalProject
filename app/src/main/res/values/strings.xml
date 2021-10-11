@@ -16,6 +16,7 @@
     <string name="sign_in_usern">Username</string>
     <string name="sign_in_passw">Password</string>
     <string name="sign_up">Sign Up</string>
+    <string name="quote">Quote</string>
 
     // Location Screen Strings
     <string name="gps_perm">GPS Permissions</string>

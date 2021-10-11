@@ -13,9 +13,16 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.cs4518_finalproject.api.InspirationAPI
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 private const val TAG = "LoginFragment"
 private const val USERNAME = "Username"
@@ -30,6 +37,8 @@ class LoginFragment : Fragment() {
     private lateinit var signInButton: Button
     private lateinit var signUpButton: Button
 
+    private lateinit var quoteTextView: TextView
+
     private val userIndex = 0
     private val otherUserIndex = 1
 
@@ -40,6 +49,19 @@ class LoginFragment : Fragment() {
 
     private var names = arrayOf("Annie", "Bjorn", "Choi", "Dmitriy", "Eiko", "Filio")
     private var passwords = arrayOf("secure", "password", "1234")
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val inspirationLiveData: LiveData<Quote> = InspirationFetchr().fetchQuote()
+        inspirationLiveData.observe(
+            this,
+            Observer { quote ->
+                Log.d(TAG, "Response received: $quote")
+                var quoteText = "\"" + quote.quote + "\" – " + quote.author
+                quoteTextView.setText(quoteText)
+            })
+    }
 
     @SuppressLint("Range")
     override fun onCreateView(
@@ -81,6 +103,7 @@ class LoginFragment : Fragment() {
         passwordEditText = view.findViewById(R.id.password_input)
         signInButton = view.findViewById(R.id.button_allow)
         signUpButton = view.findViewById(R.id.button_signUp)
+        quoteTextView = view.findViewById(R.id.quoteTextView)
 
         /*
          LISTENERS
