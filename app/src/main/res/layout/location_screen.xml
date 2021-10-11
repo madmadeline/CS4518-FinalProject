@@ -59,10 +59,10 @@
         android:id="@+id/country_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:textIsSelectable="true"
-        android:hint="@string/longitude_label"/>
+        android:layout_marginLeft="10dp"
+        android:hint="@string/country_label"
+        android:textIsSelectable="true" />
 
     <ImageView
         android:id="@+id/imageView2"

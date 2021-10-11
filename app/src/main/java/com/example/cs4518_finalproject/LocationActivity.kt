@@ -19,6 +19,8 @@ import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import android.location.Geocoder
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import java.util.*
 
 
@@ -55,6 +57,10 @@ class LocationActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.location_screen)
+
+        val locationViewModel: LocationViewModel by lazy {
+            ViewModelProviders.of(this).get(LocationViewModel::class.java)
+        }
 
         mLatitudeLabel = resources.getString(R.string.latitude_label)
         mLongitudeLabel = resources.getString(R.string.longitude_label)

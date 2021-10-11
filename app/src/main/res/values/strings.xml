@@ -31,6 +31,7 @@
     <string name="settings">Settings</string>
     <string name="latitude_label">Latitude</string>
     <string name="longitude_label">Longitude</string>
+    <string name="country_label">Country</string>
 
     // Moth Screen Strings
     <string name="greeting">hello</string>
@@ -45,7 +46,7 @@
     <string name="hope">Hope</string>
 
     // Send Screen Strings
-    <string name="just_sent">You just sent</string>
+    <string name="just_sent">You just sent: </string>
     <string name="lots_o">a lot of</string>
     <string name="back_btn">Back</string>
 
