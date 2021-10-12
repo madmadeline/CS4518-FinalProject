@@ -71,7 +71,7 @@ class SendActivity : AppCompatActivity(){
             .addShapes(Shape.Square, Shape.Circle)
             .addSizes(Size(12))
             .setPosition(0f, viewKonfetti.width + 1000f, 0f, viewKonfetti.height - 5f)
-            .streamFor(300, 1000L)
+            .streamFor(300, 5000L)
     }
 
     private fun findColor(user_message : String): Int {

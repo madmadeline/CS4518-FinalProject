@@ -39,7 +39,7 @@
     <string name="username" tools:ignore="DuplicateDefinition">my name</string>
     <string name="other_username" tools:ignore="DuplicateDefinition">other name</string>
     <string name="user_location" tools:ignore="DuplicateDefinition">my location</string>
-    <string name="other_location" tools:ignore="DuplicateDefinition">other location</string>
+    <string name="other_location" tools:ignore="DuplicateDefinition">Italy</string>
     <string name="message_question">What would you like to send?</string>
     <string name="love">Love</string>
     <string name="peace">Peace</string>
