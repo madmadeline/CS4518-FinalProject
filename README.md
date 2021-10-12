@@ -10,15 +10,19 @@ Our app uses the MVC design pattern and stores data about the user in the device
 
 ## Screenshots
 ![a screenshot of the screen showing the user's current location](screenshots/gps.png)
+
 Screen showing the user's current location - this is the first screen the user will see upon opening the app.
 
 ![a screenshot of the screen with a login form](screenshots/login.png)
+
 The login screen - login information will be stored in the user's local storage database. An inspirational quote is also shown.
 
 ![a screenshot of the main screen](screenshots/main.png)
+
 The main screen shows the second user's name, location, and message. The user can choose what message to send back to the other user.
 
 ![a screenshot of the sent confirmation screen](screenshots/sent.png)
+
 A screen showing confirmation that the user's message was sent to the other user, accompanied with confetti.
 
 ## Technical Achievements
