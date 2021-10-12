@@ -1,7 +1,8 @@
 # Mothmates
 Assignment: CS4518-FinalProject
+
 Authors: Madeline Perry and Jyalu Wu
-Demo: 
+
 
 ## Description
 In this time of isolation, many people around the world struggle with loneliness and mental health. Our app, Mothmates, creates a space where users can link up with each other to send messages of validation and compassion in order to remind one another that they are not alone. The mascot of our app, a moth, represents how people are drawn together by intrapersonal connections like moths are drawn to light.
