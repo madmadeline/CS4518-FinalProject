@@ -5,10 +5,15 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="0dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
     android:orientation="vertical">
+
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
 
     <TextView
         android:id="@+id/textView_youSent"
@@ -40,39 +45,39 @@
         android:layout_marginBottom="10dp"
         android:text="@string/lots_o" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:backgroundTint="#E91E63"
-                    android:text="@string/love" />
-
-            </LinearLayout>
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_sendBack"
+                android:id="@+id/button_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_weight="0"
-                android:backgroundTint="#9C27B0"
-                android:text="@string/back_btn" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#E91E63"
+                android:text="@string/love" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_sendBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0"
+            android:backgroundTint="#9C27B0"
+            android:text="@string/back_btn" />
+
+    </LinearLayout>
 
 </LinearLayout>

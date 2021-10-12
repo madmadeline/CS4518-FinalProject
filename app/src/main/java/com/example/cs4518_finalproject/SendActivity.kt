@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import nl.dionsegijn.konfetti.KonfettiView
+import nl.dionsegijn.konfetti.models.Shape
+import nl.dionsegijn.konfetti.models.Size
 
 private const val TAG = "SendActivity"
 private var USER_MESSAGE = "Love"
@@ -25,6 +28,7 @@ class SendActivity : AppCompatActivity(){
     private lateinit var messageButton: Button
     private lateinit var backButton: Button
     private lateinit var textOtherUser: TextView
+    private lateinit var viewKonfetti: KonfettiView
 
     public override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -37,6 +41,7 @@ class SendActivity : AppCompatActivity(){
         messageButton = findViewById(R.id.button_message)
         backButton = findViewById(R.id.button_sendBack)
         textOtherUser = findViewById(R.id.textView_otherU)
+        viewKonfetti = findViewById(R.id.viewKonfetti)
 
         /*
         SET CORRECT VALUES
@@ -53,6 +58,20 @@ class SendActivity : AppCompatActivity(){
             val intent = MainActivity.newIntent(this@SendActivity)
             startActivity(intent)
         }
+
+        /*
+        CONFETTI! :D
+         */
+        viewKonfetti.build()
+            .addColors(findColor(USER_MESSAGE))
+            .setDirection(0.0, 359.0)
+            .setSpeed(1f, 5f)
+            .setFadeOutEnabled(true)
+            .setTimeToLive(1000L)
+            .addShapes(Shape.Square, Shape.Circle)
+            .addSizes(Size(12))
+            .setPosition(0f, viewKonfetti.width + 200f, 0f, viewKonfetti.height + 50f)
+            .streamFor(300, 1000L)
     }
 
     private fun findColor(user_message : String): Int {
