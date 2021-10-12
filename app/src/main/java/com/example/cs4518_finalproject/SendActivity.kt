@@ -70,7 +70,7 @@ class SendActivity : AppCompatActivity(){
             .setTimeToLive(1000L)
             .addShapes(Shape.Square, Shape.Circle)
             .addSizes(Size(12))
-            .setPosition(0f, viewKonfetti.width + 200f, 0f, viewKonfetti.height + 50f)
+            .setPosition(0f, viewKonfetti.width + 1000f, 0f, viewKonfetti.height - 5f)
             .streamFor(300, 1000L)
     }
 
